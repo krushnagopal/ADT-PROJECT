@@ -3,7 +3,7 @@ import java.util.Comparator;
 // compartor class
 
 
-public class Edge implements Comparable{
+public class Edge {
   private Vertex start;
   private Vertex end;
   
@@ -26,13 +26,7 @@ public class Edge implements Comparable{
 	    return this.end.type;
 	  }
 
-@Override
-public int compareTo(Object o) {
-	// TODO Auto-generated method stub
-	Edge e = (Edge)o;
-	return this.getEndtype() - e.getEndtype();
-	
-}
+
   
 
     

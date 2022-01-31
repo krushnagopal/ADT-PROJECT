@@ -70,6 +70,12 @@ public class Graph {
   }
   public boolean lablecheckgreedy()
   {
+	  
+	  for(Vertex v: vertices)
+	  {
+		  
+		  v.getEdges2().clear();
+	  }
 	  if(this.casee == 2)
 	  {
 		  return true;
@@ -115,27 +121,57 @@ public class Graph {
 				 index++;
 				 
 			 }
-			 for(Vertex v : av)
-			 {
-				 System.out.print(v.getData() + "  ---->  ");
-			 }
+
 			for(Vertex v : av.subList(0, av.lastIndexOf(av.get(0))))
 			 {
 				if(av.get(av.size()-1).equals(av.get(0)) || av.get(av.size()-1).equals(v))
 				{
+					correctedges();
 					return true;
+					
 				}
-			 }
-			 
-			 
-			 
+			 } 
 	  }
+	  correctedges();
+	  
 	return false;
 	  
   }
+  public void correctedges()
+  {
+	  for(Vertex v: vertices)
+	  {
+		  
+		  for(Edge e: v.getEdges2())
+		  {
+			  v.addEdge(e.getEnd());
+			  //v.removeEdge2(e.getEnd());
+		  }
+	  }
+  }
   public void lablinggreedy()
   {
-	  
+	  ArrayList<Vertex> av = new ArrayList<Vertex>();
+		 av.add(this.getVertexByValue("a"));
+		 int index =0;
+		 while(!av.containsAll(vertices))
+		 {
+			 
+			 Vertex current = av.get(index);
+			 while(!current.getEdges().isEmpty())
+			 {
+				 Edge e = current.getEdges().get(0);
+				 current.adddEdge(current.getEdges().get(0).getEnd());
+				 removeEdge(current, current.getEdges().get(0).getEnd());
+				 av.add(e.getEnd());
+				 index++;
+				 current = av.get(index);
+			 }
+			 index++;
+		 }
+		 for(Vertex v : av)
+		 {
+			 System.out.print(v.getData() + "  ---->  ");
+		 }
   }
-    
 }

@@ -26,7 +26,7 @@ public class Main {
 		g.addEdge(g.getVertexByValue("h"), g.getVertexByValue("d"));
 		
 		System.out.println(g.lablecheckgreedy());
-		
+		g.lablinggreedy();
 		
 		
 	}
