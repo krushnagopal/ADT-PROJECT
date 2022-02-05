@@ -1,0 +1,45 @@
+1a. Describe the graph that you need to build in order to reformulate the
+problem as a one-way street problem, with a formal definition of the set
+of nodes and the set of edges.
+
+
+1b. Describe a greedy algorithm (Greedy Algorithm 1) that allows the
+checking that one feasible (wrt to the one-way street problem) graph
+orientation exists. Discuss whether your algorithm is an exact one or a
+heuristic one.
+
+labelcheckgreedy:
+	EDGES of a vertex will be in sorted order of priority   Main Entrance < MAIN EXIT < MAIN ENTRANCE/EXIT < ENTRANCE < EXIT < ENTRANCE/EXIT < BLANK NODE . 
+	AV is the empty List.
+	AV U ENTRANCE_VERTEX
+	index <- 0
+	while AV dont contain all the vertices of current graph do:
+		current is a vertex
+		current <- AV[index]
+		while current has no edges do:
+			e	<- 0th index edge of a current vertex (This has 			high priority, that is why it is in index 0)
+			remove this edge from edges of current vertex and store it 				in dummy arraylist that stores edges.
+			
+			store current edges end into av and initialize current as 			current edge end.
+		increment index
+	Check if the path starts and ends with ENTRANCE in case of same entrance and exit, or else check if it is reaching all the nodes or not and return true or false accordingly.
+
+
+
+
+
+1c. What is the complexity of that algorithm. Provide the justification of
+that complexity.
+
+	O(V+E)
+
+
+
+
+Describe the algorithm (Orientation Algorithm 1) that defines the
+orientation. Provide its complexity and the justification of it.
+Same as 1C....   O(V+E)
+
+Implement both algorithms and make them running for the data sets (see
+Section 4). Provide the source files, figures of the floor map and of the
+graph, as well as the direction of the edges

@@ -78,6 +78,8 @@ public class Graph {
 	  }
 	  if(this.casee == 2)
 	  {
+		  if(casee == 2)
+		  
 		  return true;
 	  }else if(this.casee == 3)
 	  {
@@ -149,29 +151,60 @@ public class Graph {
 		  }
 	  }
   }
-  public void lablinggreedy()
+  public void lablinggreedy(int lanes)
   {
-	  ArrayList<Vertex> av = new ArrayList<Vertex>();
-		 av.add(this.getVertexByValue("a"));
-		 int index =0;
-		 while(!av.containsAll(vertices))
-		 {
-			 
-			 Vertex current = av.get(index);
-			 while(!current.getEdges().isEmpty())
+	  if(casee == 1)
+	  {
+		  ArrayList<Vertex> av = new ArrayList<Vertex>();
+			 av.add(this.getVertexByValue("a"));
+			 int index =0;
+			 while(!av.containsAll(vertices))
 			 {
-				 Edge e = current.getEdges().get(0);
-				 current.adddEdge(current.getEdges().get(0).getEnd());
-				 removeEdge(current, current.getEdges().get(0).getEnd());
-				 av.add(e.getEnd());
+				 
+				 Vertex current = av.get(index);
+				 while(!current.getEdges().isEmpty())
+				 {
+					 Edge e = current.getEdges().get(0);
+					 current.adddEdge(current.getEdges().get(0).getEnd());
+					 removeEdge(current, current.getEdges().get(0).getEnd());
+					 av.add(e.getEnd());
+					 index++;
+					 current = av.get(index);
+				 }
 				 index++;
-				 current = av.get(index);
 			 }
-			 index++;
-		 }
-		 for(Vertex v : av)
-		 {
-			 System.out.print(v.getData() + "  ---->  ");
-		 }
-  }
+			 for(Vertex v : av)
+			 {
+				 System.out.print(v.getData() + "  ---->  ");
+			 }
+	  }else if(casee==2)
+	  {
+		  int greenoneside = lanes/2;
+		  int greenotherside = lanes - greenoneside;
+		  
+		  for(Vertex v: vertices)
+		  {
+			  for(Edge e : v.getEdges())
+			  {
+				  int c=0;
+				  while(c<greenoneside)
+				  {
+				  v.adddEdge(e.getEnd());
+				  
+				  c++;
+				  }
+				  c=0;
+				  while(c<greenotherside)
+				  {
+				  e.getEnd().adddEdge(v);
+				  c++;
+				  }
+				  
+				  
+			  }
+		  }
+		  
+	  }
+	  }
+	 
 }
