@@ -1,4 +1,6 @@
 import java.io.*;
+
+/* Main class*/
 public class MainClass {
 	public static void main(String[] args)
 	{
@@ -69,7 +71,7 @@ public class MainClass {
 				}else {
 					System.out.println("Labelling does not exist");
 				}
-				g.lablinggreedy(4,"Z");
+				g.lablinggreedy("Z");
 			}
 	}
 	}
