@@ -15,7 +15,7 @@ public class MainClass {
 					l_reader = new BufferedReader(new FileReader("C:/Users/Home/eclipse-workspace/ProjectADT/src/Graph"+k+"Case2.txt"));
 				}
 				else {
-					l_reader = new BufferedReader(new FileReader("C:/Users/Home/eclipse-workspace/ProjectADT/src/Graph"+k+".txt"));
+					l_reader = new BufferedReader(new FileReader("C:/Users/Home/eclipse-workspace/ProjectADT/src/Graph"+k+"Case1,3.txt"));
 				}
 				String pointer;
 				while ((pointer = l_reader.readLine()) != null) {
