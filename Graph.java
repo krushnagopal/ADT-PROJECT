@@ -1,65 +1,64 @@
 
 import java.util.*;
- 
+
+/* Graph class with properties of class */
 public class Graph {
   public ArrayList<Vertex> vertices;
   ArrayList<Edge> bridges = new ArrayList<Edge>();
   
+  /* */
   public int casee;
-  //public String DIFFENTRANCE EXIT
+  
+  
+  /* Graph constructor */
   public Graph() {
     this.vertices = new ArrayList<Vertex>();
   }
 
+  /* set case 1 or 2 or 3  */
   public void setCase(int caseNumber) {
 	  casee = caseNumber;
   }
+  
+  /* add vertex to the graph */
   public Vertex addVertex(String data,int type) {
     Vertex newVertex = new Vertex(data,type);
     this.vertices.add(newVertex);
     return newVertex;
   }
  
+  /* add Undirected edge */
   public void addEdge(Vertex vertex1, Vertex vertex2) {
 
     vertex1.addEdge(vertex2);
     vertex2.addEdge(vertex1);
 
   }
-  public void addEdge2(Vertex vertex1, Vertex vertex2) {
-
-	    vertex1.addEdge2(vertex2);
-	    vertex2.addEdge2(vertex1);
-	    
-	  }
-  public void removeEdge2(Vertex vertex1, Vertex vertex2) {
-	    vertex1.removeEdge2(vertex2);
-	    vertex2.removeEdge2(vertex1);
-	  }
+  
+  /* add directed edge */
   public void adddEdge(Vertex vertex1, Vertex vertex2,String color) {
 	    vertex1.adddEdge(vertex2,color);
 	  }
+  
+  /* add remove directed edge */
   public void removedEdge(Vertex vertex1, Vertex vertex2) {
 	    vertex1.removedEdge(vertex2);
 	  }
+  
+  /* add remove Undirected edge */
   public void removeEdge(Vertex vertex1, Vertex vertex2) {
     vertex1.removeEdge(vertex2);
     vertex2.removeEdge(vertex1);
 
   }
-  public void removeOppositeEdge(Vertex vertex1, Vertex vertex2) {
-	     vertex2.removeEdge(vertex1);
 
-	  }
-  
+  /* Remove vertex from the graph*/
   public void removeVertex(Vertex vertex) {
     this.vertices.remove(vertex);
   }
  
-  public ArrayList<Vertex> getVertices() {
-    return this.vertices;
-  }
- 
+
+  /* get vertex with the help of its data */
   public Vertex getVertexByValue(String value) {
 	  
     for(Vertex v: this.vertices) { 
@@ -71,9 +70,11 @@ public class Graph {
  
     return null;
   }
-    public void checkforbridges()
+  
+  /* Check if graph has any edges which are bridges and store them in list bridge */
+  public void checkforbridges()
   {
-	  //ArrayList<Edge> elist = new ArrayList<Edge>();
+
 	  for(Vertex v : vertices)
 	  {
 		  
@@ -126,8 +127,8 @@ public class Graph {
   
   
   
-  
-  public void lablinggreedy(int lanes,String entrance) 
+  /*Label your graph according to case number */
+  public void lablinggreedy(String entrance) 
 
   {
 	  
@@ -244,6 +245,9 @@ public class Graph {
 						 System.out.println();
 					 }
 }
+  
+  
+  /*check if graph is connected or not for case 2 and if graph has bridges or not for case 1 and 3*/
   public boolean dfscheck(String value)
   {
 	  
